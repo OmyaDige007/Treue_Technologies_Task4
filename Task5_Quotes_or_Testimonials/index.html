@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inspiring Quotes</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: rgb(240, 188, 93);
+      
+    }
+    .quote-container {
+      text-align: center;
+      padding: 50px;
+    }
+    .quote {
+      font-size: 24px;
+      font-style: italic;
+      margin-bottom: 20px;
+    }
+    .author {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container quote-container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <div class="quote">"Your quote here."</div>
+        <div class="author">— Author's Name</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    
+    const quotes = [
+      { quote: "It is better to be a lion for a day than a sheep all your life.", author: " Chhatrapati Shivaji Maharaj" },
+      { quote: "Do not think of the enemy as weak, then do not be too scared to feel too strong.", author: "Chhatrapati Sambhaji Maharaj" },
+      { quote: "The tiger calf lives like a tiger and kills like a tiger. The same tiger is Chhatrapati Sambhaji Maharaj.", author: "Chhatrapati Shivaji Maharaj" },
+      { quote: "To love without condition, to talk without intention, to give without reason, care without expectation, that's the spirit of true love.", author: "Lord Krishna" }
+     
+    ];
+
+    const quoteContainer = document.querySelector('.quote-container');
+    let currentIndex = 0;
+
+    function displayQuote(index) {
+      quoteContainer.innerHTML = `
+        <div class="row">
+          <div class="col-md-6 offset-md-3">
+            <div class="quote">"${quotes[index].quote}"</div>
+            <div class="author">— ${quotes[index].author}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    displayQuote(currentIndex);
+
+    setInterval(() => {
+      currentIndex = (currentIndex + 1) % quotes.length;
+      displayQuote(currentIndex);
+    }, 5000);
+  </script>
+</body>
+</html>
